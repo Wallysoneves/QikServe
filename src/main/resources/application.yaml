@@ -1,0 +1,23 @@
+project:
+  name: '@project.artifactId@'
+  version: '@project.version@'
+  description: '@project.description@'
+info:
+  build:
+    artifact: "@project.artifactId@"
+    name: "@project.name@"
+    description: '@project.description@'
+    version: '@project.version@'
+
+application:
+  title: ${project.name}
+  version: ${project.version}
+
+spring:
+  output:
+    ansi:
+      enabled: always
+
+  banner:
+    charset:  UTF-8
+    location: classpath:/banner.txt
