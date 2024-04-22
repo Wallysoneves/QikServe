@@ -25,7 +25,7 @@ public class OrderControllerImpl implements OrderController {
     private OrderService orderService;
 
     @Override
-    @PostMapping(value = "/save",
+    @PostMapping(
             consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }
     )
@@ -42,7 +42,7 @@ public class OrderControllerImpl implements OrderController {
     }
 
     @Override
-    @PatchMapping(value = "/update/{id}",
+    @PatchMapping(value = "/{id}",
             consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE },
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }
     )
