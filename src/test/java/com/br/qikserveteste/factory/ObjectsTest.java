@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ObjectsTests {
+public class ObjectsTest {
 
     /*-----------------------------------------ORDER WITH OUT PROMOTION-----------------------------------------*/
 
