@@ -5,7 +5,6 @@ import com.br.qikserveteste.infrastructure.exception.QikServeException;
 import com.br.qikserveteste.infrastructure.route.WireMockProduct;
 import com.br.qikserveteste.service.ProductServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
