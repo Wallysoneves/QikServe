@@ -139,11 +139,11 @@ R: Com a tratativa personalizada, podemos acompanhar todos os erros via console 
  ### Passo 2
  - `Criar uma class dentro do package strategy, que irá implementar a interface PromotionStrategy. Sua regra dessa promoção ficará dentro dessa class que criar.`
 <p align="center">
-  <img src="./src/main/resources/img/strategy/img.png" alt="Imagem do Notion" width="200">
+  <img src="./src/main/resources/img/strategy/img_1.png" alt="Imagem do Notion" width="200">
 </p> 
 
 ### Passo 3
 - `Dentro de OrderServiceImpl, adicionar o TypePromotion que você criou novo ao typePromotionMap, com essas alterações você já pode criar pedido com item que tem essa nova promoção.`
 <p align="center">
-  <img src="./src/main/resources/img/strategy/img.png" alt="Imagem do Notion" width="200">
+  <img src="./src/main/resources/img/strategy/img_2.png" alt="Imagem do Notion" width="200">
 </p>
