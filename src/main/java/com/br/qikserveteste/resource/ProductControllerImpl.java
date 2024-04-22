@@ -25,7 +25,7 @@ public class ProductControllerImpl implements ProductController{
     @Autowired
     private ProductService productService;
 
-    @GetMapping(value = "/all",
+    @GetMapping(
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }
     )
     public ResponseEntity<List<Product>> getAll() {
@@ -33,7 +33,7 @@ public class ProductControllerImpl implements ProductController{
     }
 
     @Override
-    @GetMapping(value = "/{id}",
+    @GetMapping(value = "/{id}/promotions",
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE }
     )
     public ResponseEntity<Product> getById(@PathVariable("id") String id) {
