@@ -145,4 +145,28 @@ public class OrderTest {
         QikServeException exception = assertThrows(QikServeException.class, () -> orderService.getById(id), "order not found");
         assertEquals(HttpStatus.NOT_FOUND, exception.getStatus());
     }
+
+    @Test
+    void update_OrderWithPromotion_ShowCalculateDiscount() {
+        Product product = ObjectsTests.createProductDiscount();
+        OrderDto order = ObjectsTests.createOrderDtoDiscount();
+
+        ResponseEntity<Product> responseProduct = ResponseEntity.ok(product);
+        when(wireMockProduct.getById("Dwt5F7KAhi")).thenReturn(responseProduct);
+
+        ProductDto productDto = ObjectsTests.createProductDtoDiscount();
+        OrderDto actualOrder = orderService.create(Collections.singletonList(productDto));
+
+        assertEquals(order.getTotal(), actualOrder.getTotal());
+        assertEquals(order.getTotalDiscount(), actualOrder.getTotalDiscount());
+        assertNotNull(orderService.getById(actualOrder.getId()));
+        verify(discountService, never()).calculate(any(), any(), any());
+
+        ProductDto productDtoPercentage = ObjectsTests.createProductDtoPercentage();
+        OrderDto actualOrderPercentage = orderService.update(actualOrder.getId(), Collections.singletonList(productDtoPercentage));
+        assertNotNull(actualOrderPercentage);
+        verify(percentageService, never()).calculate(any(), any(), any());
+        verify(discountService, never()).calculate(any(), any(), any());
+
+    }
 }
