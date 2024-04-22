@@ -14,4 +14,7 @@ public interface OrderController {
     ResponseEntity<OrderDto> create(@RequestBody List<ProductDto> productsDto);
 
     ResponseEntity<OrderDto> getById(@PathVariable("id") @Validated String id);
+
+    ResponseEntity<OrderDto> update(@PathVariable("id") @Validated String id, @RequestBody List<ProductDto> productsDto);
+
 }

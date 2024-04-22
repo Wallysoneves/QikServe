@@ -29,4 +29,10 @@ public class OrderControllerImpl implements OrderController {
     public ResponseEntity<OrderDto> getById(@PathVariable("id")  @Validated String id) {
         return new ResponseEntity<>(orderService.getById(id), HttpStatus.OK);
     }
+
+    @Override
+    @PatchMapping("/update/{id}")
+    public ResponseEntity<OrderDto> update(@PathVariable("id") String id, @RequestBody List<ProductDto> productsDto) {
+        return new ResponseEntity<>(orderService.update(id, productsDto), HttpStatus.OK);
+    }
 }
