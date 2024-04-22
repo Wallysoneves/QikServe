@@ -1,7 +1,7 @@
 package com.br.qikserveteste.product;
 
 import com.br.qikserveteste.domain.Product;
-import com.br.qikserveteste.factory.ObjectsTests;
+import com.br.qikserveteste.factory.ObjectsTest;
 import com.br.qikserveteste.infrastructure.exception.QikServeException;
 import com.br.qikserveteste.infrastructure.route.WireMockProduct;
 import com.br.qikserveteste.service.ProductServiceImpl;
@@ -13,8 +13,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
@@ -38,7 +36,7 @@ public class ProductTest {
 
     @Test
     public void testGetAll_Success() {
-        List<Product> products = ObjectsTests.createProductAll();
+        List<Product> products = ObjectsTest.createProductAll();
 
         ResponseEntity<List<Product>> responseEntity = ResponseEntity.ok(products);
         when(wireMockProduct.getAll()).thenReturn(responseEntity);
@@ -58,7 +56,7 @@ public class ProductTest {
 
     @Test
     public void testGetById_Success() {
-        Product product = ObjectsTests.createProductDiscount();
+        Product product = ObjectsTest.createProductDiscount();
 
         ResponseEntity<Product> responseEntity = ResponseEntity.ok(product);
         when(wireMockProduct.getById("Dwt5F7KAhi")).thenReturn(responseEntity);
