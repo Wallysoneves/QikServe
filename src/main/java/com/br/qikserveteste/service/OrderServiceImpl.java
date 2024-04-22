@@ -16,9 +16,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -42,6 +44,66 @@ public class OrderServiceImpl implements OrderService {
             throw new QikServeException("You must pass at least one product to create an order", HttpStatus.BAD_REQUEST);
         }
 
+        OrderDto order = this.buildOrder(productsDto);
+        orderCache.saveOrder(order.getId(), order);
+
+        return order;
+    }
+
+    @Override
+    public OrderDto getById(String id) {
+        OrderDto order = orderCache.getOrderById(id);
+
+        if (Objects.isNull(order)) {
+            throw new QikServeException("order not found", HttpStatus.NOT_FOUND);
+        }
+
+        return order;
+    }
+
+    @Override
+    public OrderDto update(String id, List<ProductDto> products) {
+
+        if (products.isEmpty()) {
+            throw new QikServeException("invalid products", HttpStatus.BAD_REQUEST);
+        }
+
+        OrderDto order = this.getById(id);
+
+        List<ProductDto> productDtosGroup = this.groupItemsWithProduct(products,order.getItems());
+
+        OrderDto orderNew = this.buildOrder(productDtosGroup);
+        orderNew.setId(id);
+
+        this.orderCache.removeOrder(id);
+        this.orderCache.saveOrder(id, orderNew);
+
+        return orderNew;
+    }
+
+    private List<ProductDto> groupItemsWithProduct(List<ProductDto> productDtos, List<ItemDto> itemDtos) {
+        Map<String, Integer> groupedQuantities = itemDtos.stream()
+                .collect(Collectors.groupingBy(ItemDto::getId, Collectors.summingInt(ItemDto::getQty)));
+
+        List<ProductDto> ProductsDtoNew = new ArrayList<>();
+
+        productDtos.forEach(productDto -> {
+            Integer qtyNew = productDto.qty();
+            if (groupedQuantities.containsKey(productDto.id())) {
+                qtyNew += groupedQuantities.get(productDto.id());
+                groupedQuantities.remove(productDto.id());
+            }
+            ProductsDtoNew.add(new ProductDto(productDto.id(), qtyNew));
+        });
+
+        groupedQuantities.forEach((id, qty) -> {
+            ProductsDtoNew.add(new ProductDto(id, qty));
+        });
+
+        return ProductsDtoNew;
+    }
+
+    private OrderDto buildOrder(List<ProductDto> productsDto) {
         try {
             OrderDto order = new OrderDto();
 
@@ -75,23 +137,10 @@ public class OrderServiceImpl implements OrderService {
                 order.setTotalDiscount(total.subtract(totalDiscount));
             }
 
-            orderCache.saveOrder(order.getId(), order);
-
             return order;
 
         } catch (Exception e) {
             throw new QikServeException(e.getLocalizedMessage());
         }
-    }
-
-    @Override
-    public OrderDto getById(String id) {
-        OrderDto order = orderCache.getOrderById(id);
-
-        if (Objects.isNull(order)) {
-            throw new QikServeException("order not found", HttpStatus.NOT_FOUND);
-        }
-
-        return order;
     }
 }

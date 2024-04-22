@@ -32,9 +32,9 @@ public class DiscountService implements PromotionStrategy {
             BigDecimal discount = totalItem.subtract(totalPriceWithDiscount);
 
             if (productDto.qty() % 2 != 0) {
-                BigDecimal lastPizzaPrice = product.getPrice().setScale(2, BigDecimal.ROUND_HALF_UP);
+                BigDecimal lastprice = product.getPrice().setScale(2, BigDecimal.ROUND_HALF_UP);
 
-                discount = discount.subtract(lastPizzaPrice);
+                discount = discount.subtract(lastprice);
             }
 
             item.setDiscount(discount);

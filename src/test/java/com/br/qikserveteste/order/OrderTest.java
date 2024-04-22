@@ -3,7 +3,7 @@ package com.br.qikserveteste.order;
 import com.br.qikserveteste.domain.Product;
 import com.br.qikserveteste.domain.dto.OrderDto;
 import com.br.qikserveteste.domain.dto.ProductDto;
-import com.br.qikserveteste.factory.ObjectsTests;
+import com.br.qikserveteste.factory.ObjectsTest;
 import com.br.qikserveteste.infrastructure.exception.QikServeException;
 import com.br.qikserveteste.infrastructure.route.WireMockProduct;
 import com.br.qikserveteste.service.OrderServiceImpl;
@@ -53,13 +53,13 @@ public class OrderTest {
 
     @Test
     void create_ProductWithNoPromotion_ShouldNotCalculateDiscount() {
-        Product product = ObjectsTests.createProduct();
-        OrderDto order = ObjectsTests.createOrderDto();
+        Product product = ObjectsTest.createProduct();
+        OrderDto order = ObjectsTest.createOrderDto();
 
         ResponseEntity<Product> responseProduct = ResponseEntity.ok(product);
         when(wireMockProduct.getById("4MB7UfpTQs")).thenReturn(responseProduct);
 
-        ProductDto productDto = ObjectsTests.createProductDto();
+        ProductDto productDto = ObjectsTest.createProductDto();
         OrderDto actualOrder = orderService.create(Collections.singletonList(productDto));
 
         assertEquals(order.getTotal(), actualOrder.getTotal());
@@ -68,13 +68,13 @@ public class OrderTest {
 
     @Test
     void create_ProductWithPromotion_ShouldCalculateGift() {
-        Product product = ObjectsTests.createProductGift();
-        OrderDto order = ObjectsTests.createOrderDtoGift();
+        Product product = ObjectsTest.createProductGift();
+        OrderDto order = ObjectsTest.createOrderDtoGift();
 
         ResponseEntity<Product> responseProduct = ResponseEntity.ok(product);
         when(wireMockProduct.getById("PWWe3w1SDU")).thenReturn(responseProduct);
 
-        ProductDto productDto = ObjectsTests.createProductDtoGift();
+        ProductDto productDto = ObjectsTest.createProductDtoGift();
         OrderDto actualOrder = orderService.create(Collections.singletonList(productDto));
 
         assertEquals(order.getTotal(), actualOrder.getTotal());
@@ -85,13 +85,13 @@ public class OrderTest {
 
     @Test
     void create_ProductWithPromotion_ShouldCalculateDiscount() {
-        Product product = ObjectsTests.createProductDiscount();
-        OrderDto order = ObjectsTests.createOrderDtoDiscount();
+        Product product = ObjectsTest.createProductDiscount();
+        OrderDto order = ObjectsTest.createOrderDtoDiscount();
 
         ResponseEntity<Product> responseProduct = ResponseEntity.ok(product);
         when(wireMockProduct.getById("Dwt5F7KAhi")).thenReturn(responseProduct);
 
-        ProductDto productDto = ObjectsTests.createProductDtoDiscount();
+        ProductDto productDto = ObjectsTest.createProductDtoDiscount();
         OrderDto actualOrder = orderService.create(Collections.singletonList(productDto));
 
         assertEquals(order.getTotal(), actualOrder.getTotal());
@@ -102,13 +102,13 @@ public class OrderTest {
 
     @Test
     void create_ProductWithPromotion_ShouldCalculatePercentage() {
-        Product product = ObjectsTests.createProductPercentage();
-        OrderDto order = ObjectsTests.createOrderDtoPercentage();
+        Product product = ObjectsTest.createProductPercentage();
+        OrderDto order = ObjectsTest.createOrderDtoPercentage();
 
         ResponseEntity<Product> responseProduct = ResponseEntity.ok(product);
         when(wireMockProduct.getById("C8GDyLrHJb")).thenReturn(responseProduct);
 
-        ProductDto productDto = ObjectsTests.createProductDtoPercentage();
+        ProductDto productDto = ObjectsTest.createProductDtoPercentage();
         OrderDto actualOrder = orderService.create(Collections.singletonList(productDto));
 
         assertEquals(order.getTotal(), actualOrder.getTotal());
@@ -119,15 +119,15 @@ public class OrderTest {
 
     @Test
     void create_ProductWithPromotion_ShouldCalculateAll() {
-        List<Product> products = ObjectsTests.createProductAll();
-        OrderDto order = ObjectsTests.createOrderDtoAll();
+        List<Product> products = ObjectsTest.createProductAll();
+        OrderDto order = ObjectsTest.createOrderDtoAll();
 
         for (Product product : products) {
             ResponseEntity<Product> responseProduct = ResponseEntity.ok(product);
             when(wireMockProduct.getById(product.getId())).thenReturn(responseProduct);
         }
 
-        List<ProductDto> productsDto = ObjectsTests.createProductDtoAll();
+        List<ProductDto> productsDto = ObjectsTest.createProductDtoAll();
         OrderDto actualOrder = orderService.create(productsDto);
 
         assertEquals(order.getTotal(), actualOrder.getTotal());
@@ -144,5 +144,29 @@ public class OrderTest {
 
         QikServeException exception = assertThrows(QikServeException.class, () -> orderService.getById(id), "order not found");
         assertEquals(HttpStatus.NOT_FOUND, exception.getStatus());
+    }
+
+    @Test
+    void update_OrderWithPromotion_ShowCalculateDiscount() {
+        Product product = ObjectsTest.createProductDiscount();
+        OrderDto order = ObjectsTest.createOrderDtoDiscount();
+
+        ResponseEntity<Product> responseProduct = ResponseEntity.ok(product);
+        when(wireMockProduct.getById("Dwt5F7KAhi")).thenReturn(responseProduct);
+
+        ProductDto productDto = ObjectsTest.createProductDtoDiscount();
+        OrderDto actualOrder = orderService.create(Collections.singletonList(productDto));
+
+        assertEquals(order.getTotal(), actualOrder.getTotal());
+        assertEquals(order.getTotalDiscount(), actualOrder.getTotalDiscount());
+        assertNotNull(orderService.getById(actualOrder.getId()));
+        verify(discountService, never()).calculate(any(), any(), any());
+
+        ProductDto productDtoPercentage = ObjectsTest.createProductDtoPercentage();
+        OrderDto actualOrderPercentage = orderService.update(actualOrder.getId(), Collections.singletonList(productDtoPercentage));
+        assertNotNull(actualOrderPercentage);
+        verify(percentageService, never()).calculate(any(), any(), any());
+        verify(discountService, never()).calculate(any(), any(), any());
+
     }
 }

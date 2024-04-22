@@ -34,4 +34,8 @@ public class OrderCache {
         Cache.ValueWrapper valueWrapper = cache.get(orderId);
         return valueWrapper != null ? (OrderDto) valueWrapper.get() : null;
     }
+
+    public void removeOrder(String orderId) {
+        cache.evict(orderId);
+    }
 }

@@ -8,6 +8,6 @@ import java.util.List;
 public interface OrderService {
 
     OrderDto create(List<ProductDto> products);
-
     OrderDto getById(String id);
+    OrderDto update(String id, List<ProductDto> products);
 }
