@@ -24,20 +24,9 @@ public class GiftService implements PromotionStrategy {
                 .subTotal(totalItem).build();
 
         if (productDto.qty() >= promotion.getRequiredQty()) {
-            Integer qtyPaid = productDto.qty() - (productDto.qty() / (promotion.getRequiredQty() + promotion.getFreeQty())) * promotion.getFreeQty();
-            Integer qtyGift = productDto.qty() / (promotion.getRequiredQty() + promotion.getFreeQty()) * promotion.getFreeQty();
+            Integer qtyGift = productDto.qty() / (promotion.getRequiredQty()) * promotion.getFreeQty();
 
-            BigDecimal subTotalPaid = product.getPrice().multiply(BigDecimal.valueOf(qtyPaid));
-            BigDecimal subTotalGift = BigDecimal.ZERO;
-
-            if (qtyGift > 0) {
-                subTotalGift = product.getPrice().multiply(BigDecimal.valueOf(qtyGift));
-            }
-
-            BigDecimal total = subTotalPaid.add(subTotalGift).setScale(2, BigDecimal.ROUND_HALF_UP);
-            BigDecimal discount = subTotalGift;
-
-            item.setSubTotal(total);
+            BigDecimal discount =  product.getPrice().multiply(BigDecimal.valueOf(qtyGift));
             item.setDiscount(discount);
         }
 
