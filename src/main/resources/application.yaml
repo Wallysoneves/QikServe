@@ -14,6 +14,8 @@ application:
   version: ${project.version}
 
 spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   output:
     ansi:
       enabled: always
@@ -21,3 +23,6 @@ spring:
   banner:
     charset:  UTF-8
     location: classpath:/banner.txt
+
+wiremock:
+  url: http://localhost:8081/
