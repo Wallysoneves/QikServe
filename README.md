@@ -43,58 +43,35 @@ A java API that consumes the given wiremock and renders the content usable, deal
 
 #### URL Notion
 [URL do notion](https://paint-carriage-c96.notion.site/a5317c72dd894a81a459731c74cd607a?v=49aa9c6d181f4161ab624129c4f8cea9&pvs=4)
+![Logo da QikServe](./src/main/resources/img/notion/img.png)
 
-<p align="center">
-  <img src="./src/main/resources/img/notion/img.png" alt="Imagem do Notion" width="200">
-</p>
+![Logo da QikServe](./src/main/resources/img/notion/img_1.png)
 
-<p align="center">
-  <img src="./src/main/resources/img/notion/img_1.png" alt="Imagem do Notion" width="200">
-</p>
+![Logo da QikServe](./src/main/resources/img/notion/img_2.png)
 
-<p align="center">
-  <img src="./src/main/resources/img/notion/img_2.png" alt="Imagem do Notion" width="200">
-</p>
-
-<p align="center">
-  <img src="./src/main/resources/img/notion/img_3.png" alt="Imagem do Notion" width="200">
-</p>
+![Logo da QikServe](./src/main/resources/img/notion/img_3.png)
 
 > ### Postman
 
 [Arquivo JSON](./src/main/resources/static/postman/QikServe.postman_collection.json)
 
-<p align="center">
-  <img src="./src/main/resources/img/postman/img.png" alt="Imagem do Notion" width="200">
-</p>
+![Logo da QikServe](./src/main/resources/img/postman/img.png)
 
-<p align="center">
-  <img src="./src/main/resources/img/postman/img_1.png" alt="Imagem do Notion" width="200">
-</p>
+![Logo da QikServe](./src/main/resources/img/postman/img_1.png)
 
-<p align="center">
-  <img src="./src/main/resources/img/postman/img_2.png" alt="Imagem do Notion" width="200">
-</p>
+![Logo da QikServe](./src/main/resources/img/postman/img_2.png)
 
-<p align="center">
-  <img src="./src/main/resources/img/postman/img_3.png" alt="Imagem do Notion" width="200">
-</p>
+![Logo da QikServe](./src/main/resources/img/postman/img_3.png)
 
 > ### Arquitetura
 
-<p align="center">
-  <img src="./src/main/resources/img/arquitetura/img.png" alt="Imagem do Notion" width="200">
-</p>
+![Logo da QikServe](./src/main/resources/img/arquitetura/img.png)
 
 > ### Swagger
 
-<p align="center">
-  <img src="./src/main/resources/img/swagger/img.png" alt="Imagem do Notion" width="200">
-</p>
+![Logo da QikServe](./src/main/resources/img/swagger/img.png)
 
-<p align="center">
-  <img src="./src/main/resources/img/swagger/img_1.png" alt="Imagem do Notion" width="200">
-</p>
+![Logo da QikServe](./src/main/resources/img/swagger/img_1.png)
 
 > ## Perguntas
 
@@ -107,12 +84,10 @@ R: Demorei 4 horas para colocar tudo que tinha em mente, esclarecer o maximo pos
      shows how you've used it.
 <br>
 R: Acredito ser OpenApi, é muito simples e intuitiva, uma API bem documentada não precisa de um desenvolvedor explicando o que cada endpoint faz.
-<p align="center">
-  <img src="./src/main/resources/img/swagger/img.png" alt="Imagem do Notion" width="200">
-</p>
-<p align="center">
-  <img src="./src/main/resources/img/swagger/img_2.png" alt="Imagem do Notion" width="200">
-</p>
+
+![Logo da QikServe](./src/main/resources/img/swagger/img.png)
+![Logo da QikServe](./src/main/resources/img/swagger/img_2.png)
+
 <br>
 <br>
 
@@ -132,18 +107,12 @@ R: Com a tratativa personalizada, podemos acompanhar todos os erros via console 
 
  ### Passo 1
  - `Adicionaria mais um tipe de Promoção`
-<p align="center">
-  <img src="./src/main/resources/img/strategy/img.png" alt="Imagem do Notion" width="200">
-</p> 
+   ![Logo da QikServe](./src/main/resources/img/strategy/img.png)
 
  ### Passo 2
  - `Criar uma class dentro do package strategy, que irá implementar a interface PromotionStrategy. Sua regra dessa promoção ficará dentro dessa class que criar.`
-<p align="center">
-  <img src="./src/main/resources/img/strategy/img_1.png" alt="Imagem do Notion" width="200">
-</p> 
+    ![Logo da QikServe](./src/main/resources/img/strategy/img_1.png)
 
 ### Passo 3
 - `Dentro de OrderServiceImpl, adicionar o TypePromotion que você criou novo ao typePromotionMap, com essas alterações você já pode criar pedido com item que tem essa nova promoção.`
-<p align="center">
-  <img src="./src/main/resources/img/strategy/img_2.png" alt="Imagem do Notion" width="200">
-</p>
+  ![Logo da QikServe](./src/main/resources/img/strategy/img_2.png)
