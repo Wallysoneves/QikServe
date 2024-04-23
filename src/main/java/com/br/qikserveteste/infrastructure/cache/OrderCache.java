@@ -8,6 +8,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Configuration
 @EnableScheduling
 @Component
@@ -30,9 +32,9 @@ public class OrderCache {
         cache.put(orderId, order);
     }
 
-    public OrderDto getOrderById(String orderId) {
+    public Optional<OrderDto> getOrderById(String orderId) {
         Cache.ValueWrapper valueWrapper = cache.get(orderId);
-        return valueWrapper != null ? (OrderDto) valueWrapper.get() : null;
+        return valueWrapper != null ? Optional.of( (OrderDto) valueWrapper.get()) : Optional.empty();
     }
 
     public void removeOrder(String orderId) {

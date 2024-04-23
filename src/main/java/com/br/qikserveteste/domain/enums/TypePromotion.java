@@ -1,5 +1,10 @@
 package com.br.qikserveteste.domain.enums;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public enum TypePromotion {
 
     FLAT_PERCENT("FLAT_PERCENT"),
@@ -7,12 +12,4 @@ public enum TypePromotion {
     BUY_X_GET_Y_FREE("BUY_X_GET_Y_FREE");
 
     private final String typePromotion;
-
-    TypePromotion(String typePromotion) {
-        this.typePromotion = typePromotion;
-    }
-
-    public String getTypePromotion() {
-        return typePromotion;
-    }
 }
