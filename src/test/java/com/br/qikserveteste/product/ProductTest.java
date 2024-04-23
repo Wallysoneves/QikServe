@@ -4,7 +4,7 @@ import com.br.qikserveteste.domain.Product;
 import com.br.qikserveteste.factory.ObjectsTest;
 import com.br.qikserveteste.infrastructure.exception.QikServeException;
 import com.br.qikserveteste.infrastructure.route.WireMockProduct;
-import com.br.qikserveteste.service.ProductServiceImpl;
+import com.br.qikserveteste.service.implementation.ProductServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
