@@ -4,7 +4,7 @@
 		"name": "QikServe",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "25137393",
-		"_collection_link": "https://red-firefly-938162.postman.co/workspace/WALLYSON-ESTUDO~232ff4a0-6f89-4004-9cfc-aebbb595262b/collection/25137393-fc361265-a761-4cc3-bd36-e9e530d686aa?action=share&source=collection_link&creator=25137393"
+		"_collection_link": "https://red-firefly-938162.postman.co/workspace/232ff4a0-6f89-4004-9cfc-aebbb595262b/collection/25137393-fc361265-a761-4cc3-bd36-e9e530d686aa?action=share&source=collection_link&creator=25137393"
 	},
 	"item": [
 		{
@@ -17,7 +17,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    {\n        \"id\": \"Dwt5F7KAhi\",\n        \"qty\": 2\n    }\n]",
+							"raw": "[\n    {\n        \"id\": \"PWWe3w1SDU\",\n        \"qty\": 2\n    }, \n    {\n        \"id\": \"Dwt5F7KAhi\",\n        \"qty\": 5\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -25,14 +25,9 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/order/save",
+							"raw": "{{URL}}order",
 							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"order",
-								"save"
+								"{{URL}}order"
 							]
 						}
 					},
@@ -42,7 +37,16 @@
 					"name": "Order/getById",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{URL}}order/8cd643bd-35f6-4d10-8037-63a959c3eb68",
+							"host": [
+								"{{URL}}order"
+							],
+							"path": [
+								"8cd643bd-35f6-4d10-8037-63a959c3eb68"
+							]
+						}
 					},
 					"response": []
 				},
@@ -53,7 +57,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    {\n        \"id\": \"PWWe3w1SDU\",\n        \"qty\": 3\n    }\n]",
+							"raw": "[\n    {\n        \"id\": \"PWWe3w1SDU\",\n        \"qty\": 2\n    },\n    {\n        \"id\": \"C8GDyLrHJb\",\n        \"qty\": 1\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -61,12 +65,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{URL}}order/d5ec5bf5-072f-496e-8e11-8ff3c1cc7473",
+							"raw": "{{URL}}order/d04dde13-248b-4e0d-b7b6-e72e3748db08",
 							"host": [
 								"{{URL}}order"
 							],
 							"path": [
-								"d5ec5bf5-072f-496e-8e11-8ff3c1cc7473"
+								"d04dde13-248b-4e0d-b7b6-e72e3748db08"
 							]
 						}
 					},
@@ -90,12 +94,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{URL}}products/Dwt5F7KAhi",
+							"raw": "{{URL}}products/Dwt5F7KAhi/promotions",
 							"host": [
 								"{{URL}}products"
 							],
 							"path": [
-								"Dwt5F7KAhi"
+								"Dwt5F7KAhi",
+								"promotions"
 							],
 							"query": [
 								{
@@ -114,12 +119,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}products/all",
+							"raw": "{{URL}}products",
 							"host": [
 								"{{URL}}products"
-							],
-							"path": [
-								"all"
 							]
 						}
 					},
