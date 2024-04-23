@@ -2,131 +2,131 @@
 A java API that consumes the given wiremock and renders the content usable, dealing with the promotions as requested
 <br>
 <br>
-[URL do GitHub](https://github.com/Wallysoneves/QikServe)
+[GitHub URL](https://github.com/Wallysoneves/QikServe)
 
-# Resultado
+# Result
 
-- [Funcionalidades](#funcionalidades)
-- [Tecnologias](#tecnologias)
-- [Imagens](#imagens)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Images](#images)
 - - [Notion](#Notion)
-- - - [Url](#url-notion)
+- - - [URL](#notion-url)
 - - [Postman](#Postman)
-- - [Arquitetura](#Arquitetura)
-- [Perguntas](#perguntas)
+- - [Architecture](#Architecture)
+- [Questions](#questions)
 
-> ## Funcionalidades do projeto
+> ## Project Features
 
-- `Buscar produtos`: É possivel buscar todos os produtos, e também buscar produtos através do `productId`.
-- `Criar Pedido`: É posivel criar pedido a partir de 1 produto, passando o `productId` e a `quantidade`que deseja.
-- `Buscar Pedido`: Todo pedido criado, ele fica salvo em cache durante 1 hora, possibilitando você de buscar ele durante esse período pelo `orderId`.
-- `Atualizar Pedido`: É possivel atualizar o pedido, para isso bastar você ter o id de algum pedido existente, e passar no body o mesmo dados que é necessário para criar um pedido, ele irá fazer o agrupamento caso necessário.
-- `Tipo Promoção`: De Acordo com cada promoção que o produto venha a ter, a `API`está preparada para lidar com ela, acatando a regra de cada promoção.
-- `Cobertura de Teste`: Para as classes do Service, onde está injetado nossa regra de negócio, temos uma cobertura de aproximadamente 90% do código.
+- `Fetch Products`: It's possible to fetch all products, and also search for products by `productId`.
+- `Create Order`: It's possible to create an order from 1 product, passing the `productId` and the `quantity` desired.
+- `Fetch Order`: Every created order is saved in cache for 1 hour, allowing you to fetch it during that period by `orderId`.
+- `Update Order`: It's possible to update the order, for that you just need the id of an existing order, and pass in the body the same data required to create an order, it will group them if necessary.
+- `Promotion Type`: According to each promotion that the product may have, the `API` is prepared to handle it, following the rule of each promotion.
+- `Test Coverage`: For the Service classes, where our business rule is injected, we have a coverage of approximately 90% of the code.
 
-> ## Tecnologias utilizadas
+> ## Technologies used
 
 * `Java 17`
 * `Intellij Idea`
-* `JUnit e Mockito`
+* `JUnit and Mockito`
 * `Maven 3.8.1`
 * `SpringDoc OpenApi Swagger`
 * `OpenFeign`
-* `Arquitetura em camadas`
-* `Desing Partten`
+* `Layered Architecture`
+* `Design Pattern`
 * `Notion`
-* `Metodologia KanBan`
+* `KanBan Methodology`
 * `Postman`
-* `GitHub e Git`
+* `GitHub and Git`
 
-> ## Imagens
+> ## Images
 
 > ### Notion
 
-#### URL Notion
-[URL do notion](https://paint-carriage-c96.notion.site/a5317c72dd894a81a459731c74cd607a?v=49aa9c6d181f4161ab624129c4f8cea9&pvs=4)
-![Logo da QikServe](./src/main/resources/img/notion/img.png)
+#### Notion URL
+[Notion URL](https://paint-carriage-c96.notion.site/a5317c72dd894a81a459731c74cd607a?v=49aa9c6d181f4161ab624129c4f8cea9&pvs=4)
+![QikServe Logo](./src/main/resources/img/notion/img.png)
 
-![Logo da QikServe](./src/main/resources/img/notion/img_1.png)
+![QikServe Logo](./src/main/resources/img/notion/img_1.png)
 
-![Logo da QikServe](./src/main/resources/img/notion/img_2.png)
+![QikServe Logo](./src/main/resources/img/notion/img_2.png)
 
-![Logo da QikServe](./src/main/resources/img/notion/img_3.png)
+![QikServe Logo](./src/main/resources/img/notion/img_3.png)
 
 > ### Postman
 
-[Arquivo JSON](./src/main/resources/static/postman/QikServe.postman_collection.json)
+[JSON File](./src/main/resources/static/postman/QikServe.postman_collection.json)
 
-![Logo da QikServe](./src/main/resources/img/postman/img.png)
+![QikServe Logo](./src/main/resources/img/postman/img.png)
 
-![Logo da QikServe](./src/main/resources/img/postman/img_1.png)
+![QikServe Logo](./src/main/resources/img/postman/img_1.png)
 
-![Logo da QikServe](./src/main/resources/img/postman/img_2.png)
+![QikServe Logo](./src/main/resources/img/postman/img_2.png)
 
-![Logo da QikServe](./src/main/resources/img/postman/img_3.png)
+![QikServe Logo](./src/main/resources/img/postman/img_3.png)
 
-> ### Arquitetura
+> ### Architecture
 
-![Logo da QikServe](src/main/resources/img/architecture/img.png)
+![QikServe Logo](src/main/resources/img/architecture/img.png)
 
 > ### Swagger
 
-![Logo da QikServe](./src/main/resources/img/swagger/img.png)
+![QikServe Logo](./src/main/resources/img/swagger/img.png)
 
-![Logo da QikServe](./src/main/resources/img/swagger/img_1.png)
+![QikServe Logo](./src/main/resources/img/swagger/img_1.png)
 
-> ## Perguntas
+> ## Questions
 
 * 1. How long did you spend on the test? What would you add if you had more time?
-<br>
-R: Demorei 4 horas para colocar tudo que tinha em mente, esclarecer o maximo possivel no notion, e para implementar demorei 8 horas, totalizando 12 horas. O que posso pensar é que para acompanhar erro pelo console, é um pouco burocrático, poderia buscar uma solução de logs `GrayLog` para melhorar visão em produção, acompanhamento para conseguir analisar melhor.
+     <br>
+     A: It took me 4 hours to put everything I had in mind, clarify as much as possible in the notion, and to implement it took 8 hours, totaling 12 hours. What I can think of is that to track errors via the console, it's a bit bureaucratic, I could seek a logging solution like `GrayLog` to improve visibility in production, enabling better analysis.
      <br>
      <br>
 * 2. What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that
      shows how you've used it.
-<br>
-R: Acredito ser OpenApi, é muito simples e intuitiva, uma API bem documentada não precisa de um desenvolvedor explicando o que cada endpoint faz.
+     <br>
+     A: I believe it to be OpenApi, it's very simple and intuitive, a well-documented API doesn't need a developer explaining what each endpoint does.
 
-![Logo da QikServe](./src/main/resources/img/swagger/img.png)
-![Logo da QikServe](./src/main/resources/img/swagger/img_2.png)
+![QikServe Logo](./src/main/resources/img/swagger/img.png)
+![QikServe Logo](./src/main/resources/img/swagger/img_2.png)
 
 <br>
 <br>
 
 * 3. What did you find most difficult?
-<br>
-R: Entender com clareza todos os requisitos, e extrair para o papel.
+     <br>
+     A: Understanding all the requirements clearly and extracting them to paper.
      <br>
      <br>
 * 4. What mechanism did you put in place to track down issues in production on this code? If you didn't put anything, write down what you
-   could do.
-<br>
-R: Com a tratativa personalizada, podemos acompanhar todos os erros via console da própria aplicação, existe ferramentas apensa esse cenário `GrayLog` é uma otima ferramenta para cenários de API. Tem muitas outras Application Performance Monitoring (APM) que atende com força esse mercado.
+     could do.
+     <br>
+     A: With the custom handling, we can track all errors via the application's console itself, there are tools for this scenario like `GrayLog` which is a great tool for API scenarios. There are many other Application Performance Monitoring (APM) tools that serve this market well.
      <br>
      <br>
 * 5. The Wiremock represents one source of information. We should be prepared to integrate with more sources. List the steps that we would
-   need to take to add more sources of items with different formats and promotions.
+     need to take to add more sources of items with different formats and promotions.
 
- ### Passo 1
- - `Adicionaria mais um tipe de Promoção`
-   ![Logo da QikServe](./src/main/resources/img/strategy/img.png)
+### Step 1
+- `Add another type of Promotion`
+  ![QikServe Logo](./src/main/resources/img/strategy/img.png)
 
- ### Passo 2
- - `Criar uma class dentro do package strategy, que irá implementar a interface PromotionStrategy. Sua regra dessa promoção ficará dentro dessa class que criar.`
-    ![Logo da QikServe](./src/main/resources/img/strategy/img_1.png)
+### Step 2
+- `Create a class within the strategy package, which will implement the PromotionStrategy interface. Your promotion's rule will be inside this class you create.`
+  ![QikServe Logo](./src/main/resources/img/strategy/img_1.png)
 
-### Passo 3
-- `Dentro de OrderServiceImpl, adicionar o TypePromotion que você criou novo ao typePromotionMap, com essas alterações você já pode criar pedido com item que tem essa nova promoção.`
-  ![Logo da QikServe](./src/main/resources/img/strategy/img_2.png)
+### Step 3
+- `Inside OrderServiceImpl, add the new TypePromotion you created to the typePromotionMap, with these changes you can already create orders with items that have this new promotion.`
+  ![QikServe Logo](./src/main/resources/img/strategy/img_2.png)
 
 <br>
 <br>
 
 * 6. Describe the most innovative or inventive endeavor you've undertaken. This could be your idea for a process change, a new product
-concept, a unique metric, or a novel customer interface. Do not share confidentail information! Provide context to help us understand the
-innovation. What problem were you addressing, and what were the outcomes? Why was solving this problem important, and what was
-the impact of the change?
+     concept, a unique metric, or a novel customer interface. Do not share confidentail information! Provide context to help us understand the
+     innovation. What problem were you addressing, and what were the outcomes? Why was solving this problem important, and what was
+     the impact of the change?
 
-R: Em 2022, por volta de novembro, fui abordado por um colega que compartilhou as dificuldades enfrentadas por sua mãe, uma professora encarregada de calcular as médias finais de seus alunos ao final do ano letivo. Ela lecionava para estudantes do 4º ao 9º ano e precisava calcular a média das notas N1, N2, N3 e N4 de cada aluno, o que demandava uma grande quantidade de tempo e esforço manual. A professora realizava esse processo através de planilhas, recebendo quatro planilhas de cada escola que atendia, e o processo levava de um a dois meses, dependendo do número de turmas que ela ministrava naquele ano.
+A: In 2022, around November, I was approached by a colleague who shared the difficulties faced by his mother, a teacher tasked with calculating the final averages of her students at the end of the school year. She taught students from the 4th to the 9th grade and needed to calculate the average of the grades N1, N2, N3, and N4 for each student, which required a significant amount of time and manual effort. The teacher performed this process using spreadsheets, receiving four spreadsheets from each school she served, and the process took one to two months, depending on the number of classes she taught that year.
 
-Diante desse desafio, trabalhei em conjunto com Richard, meu colega, para desenvolver uma solução inovadora. Criamos um software em Java que automatizava o processo de cálculo das médias, permitindo que a professora importasse as quatro planilhas de notas e recebesse uma única planilha com as médias finais de cada aluno. Essa ferramenta eliminou a necessidade de horas dedicadas a cálculos manuais e reduziu drasticamente o tempo necessário para a conclusão dessa tarefa.
+Faced with this challenge, I worked together with Richard, my colleague, to develop an innovative solution. We created a software in Java that automated the process of calculating the averages, allowing the teacher to import the four grade spreadsheets and receive a single spreadsheet with the final averages of each student. This tool eliminated the need for hours spent on manual calculations and drastically reduced the time required to complete this task.
