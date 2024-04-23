@@ -65,7 +65,7 @@ A java API that consumes the given wiremock and renders the content usable, deal
 
 > ### Arquitetura
 
-![Logo da QikServe](./src/main/resources/img/arquitetura/img.png)
+![Logo da QikServe](src/main/resources/img/architecture/img.png)
 
 > ### Swagger
 

@@ -1,10 +1,9 @@
-package com.br.qikserveteste.resource;
+package com.br.qikserveteste.resource.implementation;
 
 import com.br.qikserveteste.domain.dto.OrderDto;
 import com.br.qikserveteste.domain.dto.ProductDto;
+import com.br.qikserveteste.resource.OrderController;
 import com.br.qikserveteste.service.OrderService;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -16,9 +15,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/order")
-@Tags({
-        @Tag(name = "order", description = "documentation for the requested resource")
-})
 public class OrderControllerImpl implements OrderController {
 
     @Autowired

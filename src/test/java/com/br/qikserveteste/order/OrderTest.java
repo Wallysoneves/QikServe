@@ -6,7 +6,7 @@ import com.br.qikserveteste.domain.dto.ProductDto;
 import com.br.qikserveteste.factory.ObjectsTest;
 import com.br.qikserveteste.infrastructure.exception.QikServeException;
 import com.br.qikserveteste.infrastructure.route.WireMockProduct;
-import com.br.qikserveteste.service.OrderServiceImpl;
+import com.br.qikserveteste.service.implementation.OrderServiceImpl;
 import com.br.qikserveteste.service.strategy.DiscountService;
 import com.br.qikserveteste.service.strategy.GiftService;
 import com.br.qikserveteste.service.strategy.PercentageService;

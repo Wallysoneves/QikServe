@@ -1,9 +1,8 @@
-package com.br.qikserveteste.resource;
+package com.br.qikserveteste.resource.implementation;
 
 import com.br.qikserveteste.domain.Product;
+import com.br.qikserveteste.resource.ProductController;
 import com.br.qikserveteste.service.ProductService;
-import io.swagger.v3.oas.annotations.tags.Tag;
-import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,10 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/products")
-@Tags({
-        @Tag(name = "product", description = "documentation for the products resource")
-})
-public class ProductControllerImpl implements ProductController{
+public class ProductControllerImpl implements ProductController {
 
     @Autowired
     private ProductService productService;

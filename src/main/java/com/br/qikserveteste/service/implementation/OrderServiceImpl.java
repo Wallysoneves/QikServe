@@ -1,4 +1,4 @@
-package com.br.qikserveteste.service;
+package com.br.qikserveteste.service.implementation;
 
 import com.br.qikserveteste.domain.Product;
 import com.br.qikserveteste.domain.Promotion;
@@ -8,6 +8,9 @@ import com.br.qikserveteste.domain.dto.ProductDto;
 import com.br.qikserveteste.domain.enums.TypePromotion;
 import com.br.qikserveteste.infrastructure.cache.OrderCache;
 import com.br.qikserveteste.infrastructure.exception.QikServeException;
+import com.br.qikserveteste.service.OrderService;
+import com.br.qikserveteste.service.ProductService;
+import com.br.qikserveteste.service.PromotionStrategy;
 import com.br.qikserveteste.service.strategy.DiscountService;
 import com.br.qikserveteste.service.strategy.GiftService;
 import com.br.qikserveteste.service.strategy.PercentageService;
@@ -52,13 +55,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderDto getById(String id) {
-        OrderDto order = orderCache.getOrderById(id);
-
-        if (Objects.isNull(order)) {
-            throw new QikServeException("order not found", HttpStatus.NOT_FOUND);
-        }
-
-        return order;
+        return orderCache.getOrderById(id).orElseThrow(() -> new QikServeException("order not found", HttpStatus.NOT_FOUND));
     }
 
     @Override
