@@ -1,5 +1,8 @@
 # QikServe
 A java API that consumes the given wiremock and renders the content usable, dealing with the promotions as requested
+<br>
+<br>
+[URL do GitHub](https://github.com/Wallysoneves/QikServe)
 
 # Resultado
 
@@ -11,8 +14,6 @@ A java API that consumes the given wiremock and renders the content usable, deal
 - - [Postman](#Postman)
 - - [Arquitetura](#Arquitetura)
 - [Perguntas](#perguntas)
-## Funcionalidades
-
 
 > ## Funcionalidades do projeto
 
@@ -36,6 +37,7 @@ A java API that consumes the given wiremock and renders the content usable, deal
 * `Notion`
 * `Metodologia KanBan`
 * `Postman`
+* `GitHub e Git`
 
 > ## Imagens
 
@@ -116,3 +118,15 @@ R: Com a tratativa personalizada, podemos acompanhar todos os erros via console 
 ### Passo 3
 - `Dentro de OrderServiceImpl, adicionar o TypePromotion que você criou novo ao typePromotionMap, com essas alterações você já pode criar pedido com item que tem essa nova promoção.`
   ![Logo da QikServe](./src/main/resources/img/strategy/img_2.png)
+
+<br>
+<br>
+
+* 6. Describe the most innovative or inventive endeavor you've undertaken. This could be your idea for a process change, a new product
+concept, a unique metric, or a novel customer interface. Do not share confidentail information! Provide context to help us understand the
+innovation. What problem were you addressing, and what were the outcomes? Why was solving this problem important, and what was
+the impact of the change?
+
+R: Em 2022, por volta de novembro, fui abordado por um colega que compartilhou as dificuldades enfrentadas por sua mãe, uma professora encarregada de calcular as médias finais de seus alunos ao final do ano letivo. Ela lecionava para estudantes do 4º ao 9º ano e precisava calcular a média das notas N1, N2, N3 e N4 de cada aluno, o que demandava uma grande quantidade de tempo e esforço manual. A professora realizava esse processo através de planilhas, recebendo quatro planilhas de cada escola que atendia, e o processo levava de um a dois meses, dependendo do número de turmas que ela ministrava naquele ano.
+
+Diante desse desafio, trabalhei em conjunto com Richard, meu colega, para desenvolver uma solução inovadora. Criamos um software em Java que automatizava o processo de cálculo das médias, permitindo que a professora importasse as quatro planilhas de notas e recebesse uma única planilha com as médias finais de cada aluno. Essa ferramenta eliminou a necessidade de horas dedicadas a cálculos manuais e reduziu drasticamente o tempo necessário para a conclusão dessa tarefa.
